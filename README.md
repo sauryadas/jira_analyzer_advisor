@@ -1,3 +1,4 @@
+```mermaid
 graph TD
     %% Internet/Cloud Boundary
     subgraph Internet_Cloud [☁️ Atlassian Cloud]
@@ -5,30 +6,29 @@ graph TD
     end
 
     %% Local Desktop Boundary
-    subgraph Local_Desktop [💻 Saurya's Mac (Local Desktop)]
+    subgraph Local_Desktop ["💻 Saurya's Mac (Local Desktop)"]
         
         %% Core Python Script
         subgraph Python_Venv [🐍 Python 3.9 Virtual Environment]
-            Main_Script[main.py <br/> (Orchestrator)]
-            
+            Main_Script["main.py <br/> (Orchestrator)"]           
             Config_Module[src/config.py]
             Jira_Module[src/jira_client.py]
             Visualizer_Module[src/visualizer.py]
-            Analyzer_Module[src/analyzer.py <br/> (Advisory Advisor)]
+            Analyzer_Module["src/analyzer.py <br/> (Advisory Advisor)"]
         end
 
         %% Local Model Server
-        subgraph Ollama_Server [🐑 Ollama App (Running)]
-            Llama_Model[Llama 3 (Quantized Model)]
+        subgraph Ollama_Server ["🐑 Ollama App (Running)"]
+            Llama_Model["Llama 3 (Quantized Model)"]
         end
 
         %% Local Configuration and Output
-        Env_File[.env File <br/> (Credentials)]
-        Data_Frame[Pandas DataFrame <br/> (In-Memory Data)]
+        Env_File[".env File <br/> (Credentials)"]
+        Data_Frame["Pandas DataFrame <br/> (In-Memory Data)"]
         
         %% Output Components
-        advisory_report_md[<br/>advisory_report.md<br/> (Markdown Report)]
-        pareto_png[pareto_chart.png <br/> (Visualization)]
+        advisory_report_md["<br/>advisory_report.md<br/> (Markdown Report)"]
+        pareto_png["pareto_chart.png <br/> (Visualization)"]
     end
 
     %% Connections and Data Flow
@@ -67,5 +67,5 @@ graph TD
     class Python_Venv venv;
     class Ollama_Server ollama;
 
-    ## 📊 Sample Output
-    ![Pareto Analysis Chart](assets/component_pareto.png)
+    %% Click interaction (Optional: Works in GitHub UI)
+    click pareto_png "https://github.com/sauryadas/jira_analyzer_advisor/blob/main/assets/component_pareto.png" "View Chart"
